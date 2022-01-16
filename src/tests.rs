@@ -1,10 +1,10 @@
 #[cfg(test)]
 mod tests {
-    use crate::answer001;
+    use crate::{calc001};
 
     #[test]
     fn test_answer001() {
-        let ans = answer001();
-        assert_eq!(ans, 128);
+        let ans = calc001(7);
+        assert_eq!(ans, 12);
     }
 }

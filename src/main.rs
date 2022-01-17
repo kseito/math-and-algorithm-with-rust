@@ -1,9 +1,22 @@
 mod tests;
 
 use proconio::input;
+use std::io::{Read, stdin};
 
 fn main() {
-    answer002()
+    answer003()
+}
+
+fn answer003() {
+    let mut count = String::new();
+    let mut nums = String::new();
+    std::io::stdin().read_line(&mut count);
+    std::io::stdin().read_line(&mut nums).unwrap();
+    println!("{}", nums.split_whitespace().map({|n| n.parse::<i32>().unwrap()}).sum::<i32>());
+}
+
+fn calc003(numbers: Vec<i32>) -> i32 {
+    return numbers.iter().sum()
 }
 
 fn answer002() {

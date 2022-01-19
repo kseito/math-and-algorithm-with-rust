@@ -4,7 +4,21 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer004()
+    answer005()
+}
+
+fn answer005() {
+    let mut count = String::new();
+    let mut numsString = String::new();
+    std::io::stdin().read_line(&mut count);
+    std::io::stdin().read_line(&mut numsString).unwrap();
+    let nums = numsString.split_whitespace().map({ |n| n.parse::<i32>().unwrap() }).collect();
+    println!("{}", calc005(nums))
+}
+
+fn calc005(nums: Vec<i32>) -> i32 {
+    let sum: i32 = nums.iter().sum();
+    return sum % 100;
 }
 
 fn answer004() {
@@ -25,11 +39,11 @@ fn answer003() {
     let mut nums = String::new();
     std::io::stdin().read_line(&mut count);
     std::io::stdin().read_line(&mut nums).unwrap();
-    println!("{}", nums.split_whitespace().map({|n| n.parse::<i32>().unwrap()}).sum::<i32>());
+    println!("{}", nums.split_whitespace().map({ |n| n.parse::<i32>().unwrap() }).sum::<i32>());
 }
 
 fn calc003(numbers: Vec<i32>) -> i32 {
-    return numbers.iter().sum()
+    return numbers.iter().sum();
 }
 
 fn answer002() {

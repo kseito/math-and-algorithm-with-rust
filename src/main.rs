@@ -4,7 +4,18 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer005()
+    answer006()
+}
+
+fn answer006() {
+    input! {
+        n: i32,
+    }
+    println!("{}", calc006(n))
+}
+
+fn calc006(n: i32) -> i32 {
+    return n * 2 + 3
 }
 
 fn answer005() {

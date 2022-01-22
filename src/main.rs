@@ -2,9 +2,29 @@ mod tests;
 
 use proconio::input;
 use std::io::{Read, stdin};
+use std::iter::repeat;
 
 fn main() {
-    answer006()
+    answer007()
+}
+
+fn answer007() {
+    input! {
+        n: i32,
+        x: i32,
+        y: i32,
+    }
+    println!("{}", calc007(n, x, y));
+}
+
+fn calc007(n: i32, x: i32, y: i32) -> usize {
+    let mut count = 0;
+    for i in 1..=n {
+        if i % x == 0 || i % y == 0 {
+            count += 1
+        }
+    }
+    return count;
 }
 
 fn answer006() {
@@ -15,7 +35,7 @@ fn answer006() {
 }
 
 fn calc006(n: i32) -> i32 {
-    return n * 2 + 3
+    return n * 2 + 3;
 }
 
 fn answer005() {

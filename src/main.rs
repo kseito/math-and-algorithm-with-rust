@@ -5,7 +5,27 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer007()
+    answer008()
+}
+
+fn answer008() {
+    input! {
+        n: i32,
+        s: i32,
+    }
+    println!("{}", calc008(n, s));
+}
+
+fn calc008(n: i32, s: i32) -> i32 {
+    let mut count = 0;
+    for i in 1..=n {
+        for j in 1..=n {
+            if i + j <= s {
+                count += 1;
+            }
+        }
+    }
+    return count;
 }
 
 fn answer007() {

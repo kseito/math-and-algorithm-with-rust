@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008};
+    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009};
 
     #[test]
     fn test_answer001() {
@@ -48,5 +48,17 @@ mod tests {
     fn test_answer008() {
         let ans = calc008(3, 4);
         assert_eq!(ans, 6);
+    }
+
+    #[test]
+    fn test_answer009_1() {
+        let ans = calc009(vec![2, 5, 9], 11);
+        assert_eq!(ans, true);
+    }
+
+    #[test]
+    fn test_answer009_2() {
+        let ans = calc009(vec![3,1,4,5], 11);
+        assert_eq!(ans, false);
     }
 }

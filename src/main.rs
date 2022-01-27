@@ -5,7 +5,22 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer009()
+    answer010()
+}
+
+fn answer010() {
+    input! {
+        n: i64,
+    }
+    println!("{}", calc010(n));
+}
+
+fn calc010(n: i64) -> i64 {
+    let mut factorial: i64 = 1;
+    for i in 1_i64..=n {
+        factorial *= i
+    }
+    return factorial;
 }
 
 // cannot pass all test cases

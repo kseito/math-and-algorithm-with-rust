@@ -5,7 +5,35 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer010()
+    answer011()
+}
+
+fn answer011() {
+    input! {
+        n: i32,
+    }
+    let result: Vec<String> = calc011(n).iter().map(|i| i.to_string()).collect();
+    println!("{}", result.join(" "));
+}
+
+fn calc011(n: i32) -> Vec<i32> {
+    let mut ans = Vec::new();
+    for i in 2..=n {
+        if isPrime(i) == true {
+            ans.push(i)
+        }
+    }
+    return ans;
+}
+
+fn isPrime(n: i32) -> bool {
+    for i in 2..n {
+        let amari = n % i;
+        if amari == 0 {
+            return false;
+        }
+    }
+    return true;
 }
 
 fn answer010() {

@@ -5,7 +5,29 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer011()
+    answer012()
+}
+
+fn answer012() {
+    input! {
+        n: i64,
+    }
+    if calc012(n) {
+        println!("Yes")
+    } else {
+        println!("No")
+    }
+}
+
+fn calc012(n: i64) -> bool {
+    let rootn = (n as f64).sqrt().round() as i64;
+    for i in 2..rootn {
+        let s = n % i;
+        if s == 0 {
+            return false;
+        }
+    }
+    return true;
 }
 
 fn answer011() {

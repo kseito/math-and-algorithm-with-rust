@@ -5,7 +5,28 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer012()
+    answer013()
+}
+
+fn answer013() {
+    input! {
+        n: i64,
+    }
+    let result = calc013(n);
+    result.iter().for_each(|i| println!("{}", i));
+}
+
+fn calc013(n: i64) -> Vec<i64> {
+    let mut list = Vec::new();
+    let rootn = (n as f64).sqrt().round() as i64;
+    for i in 1..=rootn {
+        let s = n % i;
+        if s == 0 {
+            list.push(i);
+            list.push(n / i)
+        }
+    }
+    return list;
 }
 
 fn answer012() {

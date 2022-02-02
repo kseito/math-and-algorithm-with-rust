@@ -5,7 +5,34 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer013()
+    answer014()
+}
+
+fn answer014() {
+    input! {
+        n: i64,
+    }
+    let result: Vec<String> = calc014(n).iter().map(|i| i.to_string()).collect();
+    println!("{}", result.join(" "));
+}
+
+fn calc014(n: i64) -> Vec<i64> {
+    let mut vec = Vec::new();
+    let rootn = (n as f64).sqrt().round() as i64;
+    let mut s = n;
+    let mut i = 2;
+    while i <= rootn {
+        if s % i == 0 {
+            vec.push(i);
+            s = s / i;
+        } else {
+            i += 1;
+        }
+    }
+    if s > 1 {
+        vec.push(s);
+    }
+    return vec;
 }
 
 fn answer013() {

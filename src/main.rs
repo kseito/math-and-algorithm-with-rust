@@ -1,11 +1,33 @@
 mod tests;
 
+use std::cmp::{max, min};
 use proconio::input;
 use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer014()
+    answer015()
+}
+
+fn answer015() {
+    input! {
+        a: i32,
+        b: i32,
+    }
+    println!("{}", calc015(a, b))
+}
+
+fn calc015(a: i32, b: i32) -> i32 {
+    let mut x = a;
+    let mut y = b;
+    while x > 0 && y > 0 {
+        if x > y {
+            x = x % y
+        } else {
+            y = y % x
+        }
+    }
+    return max(x, y);
 }
 
 fn answer014() {

@@ -124,7 +124,7 @@ mod tests {
 
     #[test]
     fn test_answer017() {
-        let mut ans1 = calc017(vec![12, 18, 14, 27]);
+        let mut ans1 = calc017(vec![12, 18, 14]);
         assert_eq!(ans1, 252);
     }
 }

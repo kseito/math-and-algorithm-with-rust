@@ -6,18 +6,53 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer015()
+    answer017()
+}
+
+fn answer017() {
+    let mut count = String::new();
+    let mut numsString = String::new();
+    std::io::stdin().read_line(&mut count);
+    std::io::stdin().read_line(&mut numsString).unwrap();
+    let nums = numsString.split_whitespace().map({ |n| n.parse::<i64>().unwrap() }).collect();
+    println!("{}", calc017(nums))
+}
+
+fn calc017(nums: Vec<i64>) -> i64 {
+    let mut n = nums[0];
+    for i in 1..nums.len() {
+        let d = calc015(n, nums[i]);
+        n = n / d * nums[i];
+    }
+    return n;
+}
+
+fn answer016() {
+    let mut count = String::new();
+    let mut numsString = String::new();
+    std::io::stdin().read_line(&mut count);
+    std::io::stdin().read_line(&mut numsString).unwrap();
+    let nums = numsString.split_whitespace().map({ |n| n.parse::<i64>().unwrap() }).collect();
+    println!("{}", calc016(nums))
+}
+
+fn calc016(nums: Vec<i64>) -> i64 {
+    let mut n = nums[0];
+    for i in 1..nums.len() {
+        n = calc015(n, nums[i]);
+    }
+    return n;
 }
 
 fn answer015() {
     input! {
-        a: i32,
-        b: i32,
+        a: i64,
+        b: i64,
     }
     println!("{}", calc015(a, b))
 }
 
-fn calc015(a: i32, b: i32) -> i32 {
+fn calc015(a: i64, b: i64) -> i64 {
     let mut x = a;
     let mut y = b;
     while x > 0 && y > 0 {

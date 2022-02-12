@@ -6,7 +6,29 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer017()
+    answer018()
+}
+
+fn answer018() {
+    input! {
+        n: usize,
+        a: [i64; n],
+    };
+    println!("{}", calc018(a))
+}
+
+fn calc018(nums: Vec<i64>) -> i64 {
+    let mut counts = vec![0, 0, 0, 0];
+    for i in nums {
+        match i {
+            100 => counts[0] += 1,
+            200 => counts[1] += 1,
+            300 => counts[2] += 1,
+            400 => counts[3] += 1,
+            _ => panic!("invalid"),
+        }
+    }
+    return counts[0] * counts[3] + counts[1] * counts[2];
 }
 
 fn answer017() {

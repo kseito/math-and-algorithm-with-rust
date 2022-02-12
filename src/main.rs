@@ -6,14 +6,37 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer018()
+    answer019()
+}
+
+fn answer019() {
+    input! {
+        n: usize,
+        a: [i64; n],
+    }
+    println!("{}", calc019(a))
+}
+
+fn calc019(nums: Vec<i64>) -> i64 {
+    let mut red = 0;
+    let mut yellow = 0;
+    let mut blue = 0;
+    for i in nums {
+        match i {
+            1 => red += 1,
+            2 => yellow += 1,
+            3 => blue += 1,
+            _ => panic!("invalid"),
+        }
+    }
+    return (red * (red - 1) / 2) + (yellow * (yellow - 1) / 2) + (blue * (blue - 1) / 2);
 }
 
 fn answer018() {
     input! {
         n: usize,
         a: [i64; n],
-    };
+    }
     println!("{}", calc018(a))
 }
 

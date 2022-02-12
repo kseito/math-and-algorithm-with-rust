@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, isPrime};
+    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, calc019, isPrime};
 
     #[test]
     fn test_answer001() {
@@ -134,5 +134,11 @@ mod tests {
         assert_eq!(ans1, 5);
         let mut ans2 = calc018(vec![200, 300]);
         assert_eq!(ans2, 1);
+    }
+
+    #[test]
+    fn test_answer019() {
+        let mut ans1 = calc019(vec![1, 3, 2, 1, 1, 2]);
+        assert_eq!(ans1, 4);
     }
 }

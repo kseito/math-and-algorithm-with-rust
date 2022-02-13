@@ -6,7 +6,33 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer019()
+    answer020()
+}
+
+fn answer020() {
+    input! {
+        n: usize,
+        a: [i64; n],
+    }
+    println!("{}", calc020(a))
+}
+
+fn calc020(nums: Vec<i64>) -> i32 {
+    let mut ans = 0;
+    for i in 0..nums.len() {
+        for j in i + 1..nums.len() {
+            for k in j + 1..nums.len() {
+                for l in k + 1..nums.len() {
+                    for m in l + 1..nums.len() {
+                        if nums[i] + nums[j] + nums[k] + nums[l] + nums[m] == 1000 {
+                            ans += 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return ans;
 }
 
 fn answer019() {

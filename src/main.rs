@@ -6,7 +6,27 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer020()
+    answer021()
+}
+
+fn answer021() {
+    input! {
+        n: i32,
+        r: i32
+    }
+    println!("{}", calc021(n, r))
+}
+
+fn calc021(n: i32, r: i32) -> i64 {
+    return factorial(n) / factorial(r) / factorial(n - r);
+}
+
+fn factorial(n: i32) -> i64 {
+    let mut result: i64 = 1;
+    for i in 1_i64..=n.into() {
+        result *= i
+    }
+    return result;
 }
 
 fn answer020() {

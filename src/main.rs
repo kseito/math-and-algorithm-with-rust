@@ -6,7 +6,28 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer021()
+    answer022()
+}
+
+fn answer022() {
+    input! {
+        n: usize,
+        a: [usize; n],
+    }
+    println!("{}", calc022(a))
+}
+
+fn calc022(ns: Vec<usize>) -> usize {
+    let mut arr: [usize; 100000] = [0; 100000];
+    for i in ns {
+        arr[i] += 1;
+    }
+
+    let mut ans = arr[50000] * (arr[50000] - 1) / 2;
+    for i in 1..50000 {
+        ans += arr[i] * arr[100000 - i]
+    }
+    return ans;
 }
 
 fn answer021() {

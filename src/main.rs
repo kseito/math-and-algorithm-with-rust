@@ -6,7 +6,22 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer022()
+    answer023()
+}
+
+fn answer023() {
+    input! {
+        n: usize,
+        b: [f64; n],
+        r: [f64; n]
+    }
+    println!("{}", calc023(b, r))
+}
+
+fn calc023(b: Vec<f64>, r: Vec<f64>) -> f64 {
+    let bsum: f64 = b.iter().sum();
+    let rsum: f64 = r.iter().sum();
+    return (bsum + rsum) / (b.len() as f64);
 }
 
 fn answer022() {

@@ -6,7 +6,22 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer025()
+    answer026()
+}
+
+fn answer026() {
+    input! {
+        n: u32,
+    }
+    println!("{}", calc026(n))
+}
+
+fn calc026(n: u32) -> f64 {
+    let mut sum: f64 = 0.0;
+    for i in 0..n {
+        sum += n as f64 / (n - i) as f64;
+    }
+    return sum;
 }
 
 fn answer025() {

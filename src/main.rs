@@ -6,7 +6,23 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer023()
+    answer024()
+}
+
+fn answer024() {
+    input! {
+        n: usize,
+        pq: [(usize, usize); n],
+    }
+    println!("{}", calc024(pq))
+}
+
+fn calc024(pq: Vec<(usize, usize)>) -> f32 {
+    let mut sum = 0.0;
+    for i in 0..pq.len() {
+        sum += pq[i].1 as f32 / pq[i].0 as f32;
+    }
+    return sum;
 }
 
 fn answer023() {

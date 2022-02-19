@@ -6,7 +6,24 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer024()
+    answer025()
+}
+
+fn answer025() {
+    input! {
+        n: usize,
+        a: [usize; n],
+        b: [usize; n]
+    }
+    println!("{}", calc025(a, b))
+}
+
+fn calc025(a: Vec<usize>, b: Vec<usize>) -> f32 {
+    let mut sum = 0.0;
+    for i in 0..a.len() {
+        sum += a[i] as f32 / 3.0 + b[i] as f32 * 2.0 / 3.0
+    }
+    return sum;
 }
 
 fn answer024() {

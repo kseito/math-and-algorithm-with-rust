@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, calc019, calc020, calc021, calc022, calc023, calc024, factorial, isPrime};
+    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, calc019, calc020, calc021, calc022, calc023, calc024, calc025, factorial, isPrime};
 
     #[test]
     fn test_answer001() {
@@ -182,5 +182,11 @@ mod tests {
     fn test_answer024() {
         let mut ans1 = calc024(vec![(2, 50), (4, 100)]);
         assert_eq!(ans1, 50.0);
+    }
+
+    #[test]
+    fn test_answer025() {
+        let mut ans1 = calc025(vec![3, 1, 4, 1, 5], vec![9, 2, 6, 5, 3]);
+        assert_eq!((ans1 * 1000.0).round(), 21333.0);
     }
 }

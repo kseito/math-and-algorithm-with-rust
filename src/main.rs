@@ -6,7 +6,45 @@ use std::io::{Read, stdin};
 use std::iter::repeat;
 
 fn main() {
-    answer026()
+    answer027()
+}
+
+fn answer027() {
+    input! {
+        n: usize,
+        a: [u32; n],
+    }
+    let ans: Vec<String> = calc027(a).iter().map(|i| i.to_string()).collect();
+    println!("{}", ans.join(" "))
+}
+
+fn calc027(nums: Vec<u32>) -> Vec<u32> {
+    if nums.len() == 1 {
+        return nums;
+    }
+
+    let m = nums.len() / 2;
+    let (left, right) = nums.split_at(m);
+    let mut a = calc027(left.to_vec());
+    let mut b = calc027(right.to_vec());
+    let mut c: Vec<u32> = Vec::new();
+
+    while a.len() > 0 || b.len() > 0 {
+        if a.len() == 0 && b.len() > 0 {
+            c.push(b.remove(0));
+        } else if b.len() == 0 && a.len() > 0 {
+            c.push(a.remove(0));
+        } else if a[0] <= b[0] {
+            c.push(a.remove(0));
+        } else {
+            c.push(b.remove(0));
+        }
+    }
+    return c;
+}
+
+fn mergeSort(nums: [u32; 5]) -> Vec<u32> {
+    return vec![0];
 }
 
 fn answer026() {

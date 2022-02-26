@@ -1,9 +1,9 @@
 mod tests;
 
 use std::cmp::{max, min};
+use std::collections::VecDeque;
 use proconio::input;
 use std::io::{Read, stdin};
-use std::iter::repeat;
 
 fn main() {
     answer027()
@@ -14,37 +14,34 @@ fn answer027() {
         n: usize,
         a: [u32; n],
     }
-    let ans: Vec<String> = calc027(a).iter().map(|i| i.to_string()).collect();
+    let ans: Vec<String> = calc027(VecDeque::from(a)).iter().map(|i| i.to_string()).collect();
     println!("{}", ans.join(" "))
 }
 
-fn calc027(nums: Vec<u32>) -> Vec<u32> {
+fn calc027(mut nums: VecDeque<u32>) -> VecDeque<u32> {
     if nums.len() == 1 {
         return nums;
     }
 
     let m = nums.len() / 2;
-    let (left, right) = nums.split_at(m);
-    let mut a = calc027(left.to_vec());
-    let mut b = calc027(right.to_vec());
-    let mut c: Vec<u32> = Vec::new();
+    let right = nums.split_off(m);
+    let left = nums;
+    let mut a = calc027(left);
+    let mut b = calc027(right);
+    let mut c = VecDeque::new();
 
     while a.len() > 0 || b.len() > 0 {
         if a.len() == 0 && b.len() > 0 {
-            c.push(b.remove(0));
+            c.push_back(b.pop_front().unwrap());
         } else if b.len() == 0 && a.len() > 0 {
-            c.push(a.remove(0));
+            c.push_back(a.pop_front().unwrap())
         } else if a[0] <= b[0] {
-            c.push(a.remove(0));
+            c.push_back(a.pop_front().unwrap())
         } else {
-            c.push(b.remove(0));
+            c.push_back(b.pop_front().unwrap());
         }
     }
     return c;
-}
-
-fn mergeSort(nums: [u32; 5]) -> Vec<u32> {
-    return vec![0];
 }
 
 fn answer026() {

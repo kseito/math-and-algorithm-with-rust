@@ -1,5 +1,8 @@
 #[cfg(test)]
 mod tests {
+    use std::collections::VecDeque;
+    use std::io::{Read, repeat};
+    use std::time::SystemTime;
     use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, calc019, calc020, calc021, calc022, calc023, calc024, calc025, calc026, calc027, factorial, isPrime};
 
     #[test]
@@ -198,9 +201,17 @@ mod tests {
 
     #[test]
     fn test_answer027() {
-        let mut ans1 = calc027(vec![31, 41, 59, 26]);
+        let mut ans1 = calc027(VecDeque::from(vec![31, 41, 59, 26]));
         assert_eq!(ans1, vec![26, 31, 41, 59]);
-        let mut ans2 = calc027(vec![658, 299, 47, 507, 122, 969, 449, 68, 513, 800]);
+        let mut ans2 = calc027(VecDeque::from(vec![658, 299, 47, 507, 122, 969, 449, 68, 513, 800]));
         assert_eq!(ans2, vec![47, 68, 122, 299, 449, 507, 513, 658, 800, 969]);
+        let mut massive_data = VecDeque::new();
+        for i in 0..200_000 {
+            massive_data.push_back(i)
+        }
+        let start_time = SystemTime::now();
+        let mut ans3 = calc027(massive_data);
+        assert_ne!(ans3, vec![]);
+        println!("{}", SystemTime::now().duration_since(start_time).unwrap().as_millis())
     }
 }

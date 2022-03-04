@@ -6,7 +6,27 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer027()
+    answer028()
+}
+
+fn answer028() {
+    input! {
+        n: usize,
+        a: [i32; n],
+    }
+    println!("{}", calc028(a))
+}
+
+fn calc028(height: Vec<i32>) -> i32 {
+    let mut costs = Vec::new();
+    costs.push(0);
+    costs.push((height[1] - height[0]).abs());
+    for i in 2..height.len() {
+        let a = (height[i] - height[i - 2]).abs() + costs[i - 2];
+        let b = (height[i] - height[i - 1]).abs() + costs[i - 1];
+        costs.push(min(a, b));
+    }
+    return costs.pop().unwrap();
 }
 
 fn answer027() {

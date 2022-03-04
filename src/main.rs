@@ -6,7 +6,26 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer028()
+    answer029()
+}
+
+fn answer029() {
+    input! {
+        n: usize,
+    }
+    println!("{}", calc029(n))
+}
+
+fn calc029(n: usize) -> i32 {
+    let mut arr: [i32; 46] = [0; 46];
+    for i in 0..=n {
+        if i <= 1 {
+            arr[i] = 1;
+        } else {
+            arr[i] = arr[i - 2] + arr[i - 1]
+        }
+    }
+    return arr[n];
 }
 
 fn answer028() {

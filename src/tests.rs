@@ -55,8 +55,8 @@ mod tests {
 
     #[test]
     fn test_answer009_1() {
-        let ans = calc009(vec![2, 5, 9], 11);
-        assert_eq!(ans, true);
+        let ans1 = calc009(vec![2, 5, 9], 11);
+        assert_eq!(ans1, true);
     }
 
     #[test]

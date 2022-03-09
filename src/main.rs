@@ -451,37 +451,32 @@ fn calc010(n: i64) -> i64 {
     return factorial;
 }
 
-// cannot pass all test cases
 fn answer009() {
-    let mut input = String::new();
-    let mut nsString = String::new();
-    std::io::stdin().read_line(&mut input).unwrap();
-    std::io::stdin().read_line(&mut nsString);
-    let mut iterator = input.split_whitespace();
-    let n: i32 = iterator.next().unwrap().parse().unwrap();
-    let s: i32 = iterator.next().unwrap().parse().unwrap();
-    let nums: Vec<i32> = nsString.split_whitespace().map({ |n| n.parse::<i32>().unwrap() }).collect();
-    if calc009(nums, s) {
+    input! {
+        n: usize,
+        s: usize,
+        a: [usize; n]
+    }
+    if calc009(a, s) {
         println!("Yes")
     } else {
         println!("No")
     }
 }
 
-fn calc009(ns: Vec<i32>, s: i32) -> bool {
-    for i in 0..2_i32.pow(ns.len() as u32) {
-        let mut sum = 0;
-        for j in 1..=ns.len() {
-            let digit = j as u32 - 1;
-            if i & 2_i32.pow(digit) != 0 {
-                sum += ns[j - 1];
+fn calc009(a: Vec<usize>, s: usize) -> bool {
+    let mut arr: Vec<Vec<isize>> = vec![vec![std::isize::MIN; 10001]; 10001];
+    arr[0][0] = 0;
+    for i in 1..=a.len() {
+        for j in 0..=s {
+            if j < a[i - 1] {
+                arr[i][j] = arr[i - 1][j]
+            } else {
+                arr[i][j] = max(arr[i - 1][j], arr[i - 1][j - a[i - 1]] + a[i - 1] as isize);
             }
         }
-        if sum == s {
-            return true;
-        }
     }
-    return false;
+    return arr[a.len()].iter().any(|i| *i == s as isize);
 }
 
 fn answer008() {

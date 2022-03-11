@@ -6,7 +6,29 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer030()
+    answer031()
+}
+
+fn answer031() {
+    input! {
+        n: usize,
+        a: [u64; n],
+    }
+    println!("{}", calc031(a))
+}
+
+fn calc031(a: Vec<u64>) -> u64 {
+    let mut arr  = vec![0;a.len()];
+    for i in 0..a.len() {
+        if i <= 1 {
+            arr[i] = a[i];
+        } else if i == 2 {
+            arr[i] = a[i] + arr[i - 2];
+        } else {
+            arr[i] = a[i] + max(arr[i - 2], arr[i - 3])
+        }
+    }
+    return *arr.iter().max().unwrap();
 }
 
 fn answer030() {

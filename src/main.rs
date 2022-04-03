@@ -6,7 +6,40 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer031()
+    answer033()
+}
+
+fn answer033() {
+    input! {
+        ax: f64,
+        ay: f64,
+        bx: f64,
+        by: f64,
+        cx: f64,
+        cy: f64,
+    }
+    println!("{}", calc033(ax, ay, bx, by, cx, cy))
+}
+
+fn calc033(ax: f64, ay: f64, bx: f64, by: f64, cx: f64, cy: f64) -> f64 {
+    let bax = ax - bx;
+    let bay = ay - by;
+    let bcx = cx - bx;
+    let bcy = cy - by;
+    let cax = ax - cx;
+    let cay = ay - cy;
+    let cbx = bx - cx;
+    let cby = by - cy;
+
+    return if bax * bcx + bay * bcy < 0.0 {
+        (bax * bax + bay * bay).sqrt()
+    } else if cax * cbx + cay * cby < 0.0 {
+        (cax * cax + cay * cay).sqrt()
+    } else {
+        let s = ((bax * cay - bay * cax) as f64).abs();
+        let bc_length = ((bcx * bcx + bcy * bcy) as f64).sqrt();
+        return s / bc_length;
+    };
 }
 
 fn answer031() {
@@ -18,7 +51,7 @@ fn answer031() {
 }
 
 fn calc031(a: Vec<u64>) -> u64 {
-    let mut arr  = vec![0;a.len()];
+    let mut arr = vec![0; a.len()];
     for i in 0..a.len() {
         if i <= 1 {
             arr[i] = a[i];

@@ -6,7 +6,38 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer033()
+    answer032()
+}
+
+fn answer032() {
+    input! {
+        n: usize,
+        x: i64,
+        a: [i64; n],
+    }
+    if calc032(x, a) {
+        println!("Yes")
+    } else {
+        println!("No")
+    }
+}
+
+fn calc032(x: i64, mut a: Vec<i64>) -> bool {
+    a.sort();
+    let mut left: i64 = 0;
+    let mut right: i64 = (a.len() - 1) as i64;
+    let mut mid: i64 = 0;
+    while left <= right {
+        mid = (left + right) / 2;
+        if a[mid as usize] == x {
+            return true;
+        } else if a[mid as usize] > x {
+            right = (mid - 1) as i64
+        } else if a[mid as usize] < x {
+            left = (mid + 1) as i64
+        }
+    }
+    return false;
 }
 
 fn answer033() {

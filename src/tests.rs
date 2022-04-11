@@ -3,7 +3,7 @@ mod tests {
     use std::collections::VecDeque;
     use std::io::{Read, repeat};
     use std::time::SystemTime;
-    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, calc019, calc020, calc021, calc022, calc023, calc024, calc025, calc026, calc027, calc028, calc029, calc030, calc031, calc033, factorial, isPrime};
+    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, calc019, calc020, calc021, calc022, calc023, calc024, calc025, calc026, calc027, calc028, calc029, calc030, calc031, calc032, calc033, factorial, isPrime};
 
     #[test]
     fn test_answer001() {
@@ -243,6 +243,18 @@ mod tests {
         assert_eq!(ans1, 8);
         let ans2 = calc031(vec![1, 0, 3, 1000000000, 3, 4, 1000000000, 5]);
         assert_eq!(ans2, 2000000001);
+    }
+
+    #[test]
+    fn test_answer032() {
+        let ans1 = calc032(3, vec![1,2,3,4,5,6,7]);
+        assert_eq!(ans1, true);
+        let ans2 = calc032(9, vec![1,2,3,4,5,6,7]);
+        assert_eq!(ans2, false);
+        let ans3 = calc032(1, vec![2,3,4,5,6,7,8]);
+        assert_eq!(ans3, false);
+        let ans4 = calc032(3, vec![5,6,4,7,3,8,2]);
+        assert_eq!(ans4, true);
     }
 
     #[test]

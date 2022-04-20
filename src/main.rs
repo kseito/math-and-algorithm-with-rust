@@ -369,11 +369,10 @@ fn calc018(nums: Vec<i64>) -> i64 {
 }
 
 fn answer017() {
-    let mut count = String::new();
-    let mut numsString = String::new();
-    std::io::stdin().read_line(&mut count);
-    std::io::stdin().read_line(&mut numsString).unwrap();
-    let nums = numsString.split_whitespace().map({ |n| n.parse::<i64>().unwrap() }).collect();
+    input! {
+        n: usize,
+        nums: [i64; n],
+    }
     println!("{}", calc017(nums))
 }
 
@@ -387,11 +386,10 @@ fn calc017(nums: Vec<i64>) -> i64 {
 }
 
 fn answer016() {
-    let mut count = String::new();
-    let mut numsString = String::new();
-    std::io::stdin().read_line(&mut count);
-    std::io::stdin().read_line(&mut numsString).unwrap();
-    let nums = numsString.split_whitespace().map({ |n| n.parse::<i64>().unwrap() }).collect();
+    input! {
+        n: usize,
+        nums: [i64; n],
+    }
     println!("{}", calc016(nums))
 }
 
@@ -505,14 +503,14 @@ fn answer011() {
 fn calc011(n: i32) -> Vec<i32> {
     let mut ans = Vec::new();
     for i in 2..=n {
-        if isPrime(i) == true {
+        if is_prime(i) == true {
             ans.push(i)
         }
     }
     return ans;
 }
 
-fn isPrime(n: i32) -> bool {
+fn is_prime(n: i32) -> bool {
     for i in 2..n {
         let amari = n % i;
         if amari == 0 {
@@ -551,7 +549,7 @@ fn answer009() {
 }
 
 fn calc009(a: Vec<usize>, s: usize) -> bool {
-    let mut arr: Vec<Vec<isize>> = vec![vec![std::isize::MIN; 10001]; 10001];
+    let mut arr: Vec<Vec<isize>> = vec![vec![isize::MIN; 10001]; 10001];
     arr[0][0] = 0;
     for i in 1..=a.len() {
         for j in 0..=s {
@@ -616,11 +614,10 @@ fn calc006(n: i32) -> i32 {
 }
 
 fn answer005() {
-    let mut count = String::new();
-    let mut numsString = String::new();
-    std::io::stdin().read_line(&mut count);
-    std::io::stdin().read_line(&mut numsString).unwrap();
-    let nums = numsString.split_whitespace().map({ |n| n.parse::<i32>().unwrap() }).collect();
+    input! {
+        n: usize,
+        nums: [i32; n],
+    }
     println!("{}", calc005(nums))
 }
 

@@ -105,7 +105,7 @@ fn answer030() {
 }
 
 fn calc030(n: usize, w: usize, wv: Vec<(usize, isize)>) -> isize {
-    let mut arr: Vec<Vec<isize>> = vec![vec![std::isize::MIN; 100_001]; 101];
+    let mut arr: Vec<Vec<isize>> = vec![vec![isize::MIN; 100_001]; 101];
     arr[0][0] = 0;
     for i in 1..=n {
         for j in 0..=w {

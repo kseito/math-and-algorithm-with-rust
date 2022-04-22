@@ -6,7 +6,28 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer032()
+    answer034()
+}
+
+fn answer034() {
+    input! {
+        n: usize,
+        a: [(f64, f64); n],
+    }
+    println!("{}", calc034(a))
+}
+
+fn calc034(xy: Vec<(f64, f64)>) -> f64 {
+    let mut ans = std::f64::MAX;
+    for i in 0..xy.len() {
+        for j in i + 1..xy.len() {
+            let distance = ((xy[j].0 - xy[i].0).powf(2.0) + (xy[j].1 - xy[i].1).powf(2.0)).sqrt();
+            if distance < ans {
+                ans = distance
+            }
+        }
+    }
+    return ans;
 }
 
 fn answer032() {

@@ -6,7 +6,35 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer034()
+    answer035()
+}
+
+fn answer035() {
+    input! {
+        x1: f32,
+        y1: f32,
+        r1: f32,
+        x2: f32,
+        y2: f32,
+        r2: f32,
+    }
+    println!("{}", calc035(x1, y1, r1, x2, y2, r2))
+}
+
+fn calc035(x1: f32, y1: f32, r1: f32, x2: f32, y2: f32, r2: f32) -> usize {
+    let d = ((x1 - x2).powi(2) + (y1 - y2).powi(2)).sqrt();
+
+    return if d < (r1 - r2).abs() {
+        1
+    } else if d == (r1 - r2).abs() {
+        2
+    } else if d < r1 + r2 {
+        3
+    } else if d == r1 + r2 {
+        4
+    } else {
+        5
+    };
 }
 
 fn answer034() {

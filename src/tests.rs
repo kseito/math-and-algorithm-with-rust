@@ -3,7 +3,7 @@ mod tests {
     use std::collections::VecDeque;
     use std::io::{Read, repeat};
     use std::time::SystemTime;
-    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, calc019, calc020, calc021, calc022, calc023, calc024, calc025, calc026, calc027, calc028, calc029, calc030, calc031, calc032, calc033, calc034, factorial, is_prime};
+    use crate::{calc001, calc002, calc003, calc004, calc005, calc006, calc007, calc008, calc009, calc010, calc011, calc012, calc013, calc014, calc015, calc016, calc017, calc018, calc019, calc020, calc021, calc022, calc023, calc024, calc025, calc026, calc027, calc028, calc029, calc030, calc031, calc032, calc033, calc034, calc035, factorial, is_prime};
 
     #[test]
     fn test_answer001() {
@@ -247,13 +247,13 @@ mod tests {
 
     #[test]
     fn test_answer032() {
-        let ans1 = calc032(3, vec![1,2,3,4,5,6,7]);
+        let ans1 = calc032(3, vec![1, 2, 3, 4, 5, 6, 7]);
         assert_eq!(ans1, true);
-        let ans2 = calc032(9, vec![1,2,3,4,5,6,7]);
+        let ans2 = calc032(9, vec![1, 2, 3, 4, 5, 6, 7]);
         assert_eq!(ans2, false);
-        let ans3 = calc032(1, vec![2,3,4,5,6,7,8]);
+        let ans3 = calc032(1, vec![2, 3, 4, 5, 6, 7, 8]);
         assert_eq!(ans3, false);
-        let ans4 = calc032(3, vec![5,6,4,7,3,8,2]);
+        let ans4 = calc032(3, vec![5, 6, 4, 7, 3, 8, 2]);
         assert_eq!(ans4, true);
     }
 
@@ -271,5 +271,15 @@ mod tests {
     fn test_answer034() {
         let ans1 = calc034(vec![(0.0, 1.0), (2.0, 0.0), (2.0, 3.0), (3.0, 1.0)]);
         assert_eq!(ans1, 1.4142135623730950488016887242)
+    }
+
+    #[test]
+    fn test_answer035() {
+        let ans1 = calc035(4.0, 1.0, 2.0, 1.0, 5.0, 3.0);
+        assert_eq!(ans1, 4);
+        let ans2 = calc035(1.0, 1.0, 6.0, 3.0, 3.0, 2.0);
+        assert_eq!(ans2, 1);
+        let ans3 = calc035(6.0, 6.0, 6.0, 6.0, 6.0, 6.0);
+        assert_eq!(ans3, 2)
     }
 }

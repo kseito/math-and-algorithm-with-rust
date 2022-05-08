@@ -6,7 +6,23 @@ use proconio::input;
 use std::io::{Read, stdin};
 
 fn main() {
-    answer035()
+    answer036()
+}
+
+fn answer036() {
+    input! {
+        a: f64,
+        b: f64,
+        h: f64,
+        m: f64,
+    }
+    println!("{}", calc036(a, b, h, m))
+}
+
+fn calc036(a: f64, b: f64, h: f64, m: f64) -> f64 {
+    let diff = (h * 30.0 + m * 0.5 - m * 6.0).abs();
+    let ans = a * a + b * b - 2.0 * a * b * diff.to_radians().cos();
+    return ans.sqrt();
 }
 
 fn answer035() {
